@@ -1,22 +1,22 @@
 <script>
 // import HelloWorld from "./components/HelloWorld.vue"
-import defaulImage from "./assets/pokerahasia.png"
-import Vue3Lottie from "vue3-lottie"
-import LoadingLottie from "./assets/loading.json"
-import ig from "./assets/ig.png"
+import defaulImage from "./assets/pokerahasia.png";
+import Vue3Lottie from "vue3-lottie";
+import LoadingLottie from "./assets/loading.json";
+import ig from "./assets/ig.png";
 
 export default {
   setup() {
-    const name = "Azham"
-    const fotoAwal = "./assets/pokerahasia.png"
+    const name = "Azham";
+    const fotoAwal = "./assets/pokerahasia.png";
     const apiData = {
       apiUrl: "https://pokeapi.co/api/v2/",
       endPoint: "pokemon/",
-    }
+    };
     return {
       name,
       apiData,
-    }
+    };
   },
 
   components: {
@@ -34,20 +34,20 @@ export default {
       weight: "???",
       LoadingLottie,
       komentar: [
-        { name: "Azham", content: "Wuihh aku dapet Pikachu" },
-        { name: "Udin", content: "Okelahh" },
-        { name: "Budi", content: "Sedappp ih" },
+        { name: "Farhan", content: "Wuihh aku dapet Pikachu" },
+        { name: "Brodi", content: "Mantap" },
+        { name: "Firly", content: "Seru!!!" },
       ],
       komentarBaru: {
         name: "",
         content: "",
       },
-    }
+    };
   },
 
   methods: {
     cek() {
-      console.log(this.apiData.apiUrl)
+      console.log(this.apiData.apiUrl);
     },
 
     // randomCount() {
@@ -57,36 +57,36 @@ export default {
     // },
 
     generatePokemon() {
-      this.loading = true
-      var random = Math.floor(Math.random() * 400)
-      this.count = random
-      console.log(random)
-      const url = this.apiData.apiUrl + this.apiData.endPoint + `${this.count}`
+      this.loading = true;
+      var random = Math.floor(Math.random() * 400);
+      this.count = random;
+      console.log(random);
+      const url = this.apiData.apiUrl + this.apiData.endPoint + `${this.count}`;
       fetch(url)
         .then((data) => data.json())
         .then((pokemon) => {
-          this.imagePoke = pokemon.sprites.other.dream_world.front_default
-          this.namePoke = pokemon.name
-          this.height = pokemon.height
-          this.weight = pokemon.weight
-          this.loading = false
-          console.log(this.imagePoke)
+          this.imagePoke = pokemon.sprites.other.dream_world.front_default;
+          this.namePoke = pokemon.name;
+          this.height = pokemon.height;
+          this.weight = pokemon.weight;
+          this.loading = false;
+          console.log(this.imagePoke);
         })
         .catch((err) => {
-          console.log(err)
-        })
+          console.log(err);
+        });
     },
     addComment() {
       this.komentar.push({
         id: 3,
         name: this.komentarBaru.name,
         content: this.komentarBaru.content,
-      })
-      this.komentarBaru.name = ""
-      this.komentarBaru.content = ""
+      });
+      this.komentarBaru.name = "";
+      this.komentarBaru.content = "";
     },
   },
-}
+};
 </script>
 
 <template>
@@ -292,7 +292,7 @@ export default {
     </div>
     <div class="container footer">
       <hr />
-      <div class="sosmed">
+      <!-- <div class="sosmed">
         <a href="https://www.instagram.com/azham.rasyid/" target="_blank">
           <img src="./assets/ig.png" width="30" class="me-2" />
         </a>
@@ -305,8 +305,8 @@ export default {
         <a href="https://github.com/azhamdev" target="_blank">
           <img src="./assets/github.png" width="30" class="me-2" />
         </a>
-      </div>
-      <p>A'zham Albar Rasyid</p>
+      </div> -->
+      <p>Muhammad Daffa Daminatila</p>
     </div>
   </div>
 </template>
